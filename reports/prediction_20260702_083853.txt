@@ -1,0 +1,19 @@
+CineMind AI Prediction Report
+================================
+Date/Time: 2026-07-02 08:38:53
+
+Input Information
+------------------
+genre: Comedy
+budget: 2000000
+runtime: 100
+release_month: 10
+popularity_score: 22.0
+
+Prediction Result
+------------------
+Prediction: Flop
+Probabilities:
+- Average: 2.97%
+- Flop: 97.02%
+- Hit: 0.00%

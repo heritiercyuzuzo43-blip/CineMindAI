@@ -1,0 +1,19 @@
+CineMind AI Prediction Report
+================================
+Date/Time: 2026-07-02 08:49:47
+
+Input Information
+------------------
+genre: Sci-Fi
+budget: 55000000
+runtime: 100
+release_month: 4
+popularity_score: 70.0
+
+Prediction Result
+------------------
+Prediction: Flop
+Probabilities:
+- Average: 9.90%
+- Flop: 85.70%
+- Hit: 4.40%

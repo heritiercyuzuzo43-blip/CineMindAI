@@ -1,0 +1,19 @@
+CineMind AI Prediction Report
+================================
+Date/Time: 2026-07-02 08:52:26
+
+Input Information
+------------------
+genre: Horror
+budget: 93000000
+runtime: 120
+release_month: 11
+popularity_score: 88.0
+
+Prediction Result
+------------------
+Prediction: Hit
+Probabilities:
+- Average: 16.87%
+- Flop: 6.81%
+- Hit: 76.32%

@@ -1,0 +1,19 @@
+CineMind AI Prediction Report
+================================
+Date/Time: 2026-07-02 20:57:06
+
+Input Information
+------------------
+genre: Action
+budget: 50000000
+runtime: 120
+release_month: 6
+popularity_score: 50.0
+
+Prediction Result
+------------------
+Prediction: Flop
+Probabilities:
+- Average: 21.95%
+- Flop: 75.62%
+- Hit: 2.44%
