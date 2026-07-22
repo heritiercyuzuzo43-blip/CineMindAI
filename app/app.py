@@ -30,6 +30,8 @@ from src.config import FEATURE_COLUMNS
 from components.explainable_ai import render_explanation
 from components.what_if_simulator import render_what_if
 from components.prediction_history import add_prediction_to_history, render_prediction_history_section
+from components.chatbot import render_cinemind_assistant
+from components.ai_processing_panel import render_ai_processing_panel 
 
 dashboard_module = importlib.import_module("src.dashboard")
 get_dashboard_data = dashboard_module.get_dashboard_data
@@ -713,6 +715,12 @@ except Exception as e:
 
 with st.container():
     render_prediction_history_section()
+
+with st.container():
+    render_cinemind_assistant()
+
+with st.container():
+    render_ai_processing_panel()
 
 st.markdown(
     '''
