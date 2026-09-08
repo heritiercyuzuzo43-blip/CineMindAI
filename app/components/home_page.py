@@ -9,24 +9,38 @@ def render_home_page_styles():
     st.markdown(
         """
         <style>
-        .home-page-shell { max-width: 1280px; margin: 0 auto; padding: 24px 24px 40px; position: relative; }
-        .hero-section { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 54px; align-items: center; max-width: 1200px; margin: 0 auto 48px; padding: 32px 0 12px; }
-        .hero-brand { display: inline-flex; align-items: center; gap: 12px; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #D4AF37; margin-bottom: 16px; }
+        .home-page-shell { max-width: 1280px; margin: 0 auto; padding: 0 24px 24px; position: relative; }
+                .hero-section { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 28px; align-items: center; max-width: 1200px; margin: 0 auto 18px; padding: 4px 0 0; }
+                .hero-brand { display: inline-flex; align-items: center; gap: 12px; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.28em; text-transform: uppercase; color: #D4AF37; margin-bottom: 18px; opacity: 0.9; }
+
         .hero-brand span { font-size: 1.1rem; }
-        .hero-tagline { color: #E8E3DC; font-size: 1rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 26px; }
-        .hero-title { font-family: 'Cinzel', 'Cormorant Garamond', 'Playfair Display', serif; font-size: clamp(3.8rem, 5.4vw, 5.8rem); line-height: 0.96; margin: 0 0 28px; letter-spacing: 0.22em; color: #FFFFFF; }
-        .hero-title .title-highlight { display: block; background: linear-gradient(90deg, #D4AF37 0%, #F5D76E 100%); -webkit-background-clip: text; color: transparent; }
-        .hero-description { color: #D8D8D8; font-size: 1.05rem; line-height: 1.95; max-width: 44rem; margin-bottom: 34px; }
-        .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; }
+        .hero-title { font-family: 'Cinzel', 'Cormorant Garamond', 'Playfair Display', serif; font-size: clamp(3rem, 4.2vw, 4.8rem); line-height: 1.05; margin: 0 0 24px; letter-spacing: 0.18em; color: #FFFFFF; font-weight: 900; }
+        .hero-title .title-highlight { display: block; background: linear-gradient(90deg, #D4AF37 0%, #F5D76E 100%); -webkit-background-clip: text; color: transparent; margin-top: 4px; }
+        .hero-description { color: #E0DCCD; font-size: 1.15rem; line-height: 1.6; max-width: 38rem; margin-bottom: 28px; font-weight: 500; letter-spacing: 0.01em; }
+        .hero-copy p:last-of-type { color: #AFA998; font-size: 0.95rem; line-height: 1.7; max-width: 36rem; margin-bottom: 32px; font-weight: 400; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 0; }
+
         .hero-actions .stButton>button { border-radius: 999px; min-width: 188px; padding: 18px 34px; font-weight: 800; letter-spacing: 0.08em; transition: transform 300ms ease, box-shadow 300ms ease, background 300ms ease, border-color 300ms ease, color 300ms ease; }
         .hero-actions .stButton>button:first-child { background: linear-gradient(90deg, #D4AF37 0%, #F5D76E 100%); color: #111111; border: 1px solid rgba(212,175,55,0.32); box-shadow: 0 18px 42px rgba(212,175,55,0.22); }
         .hero-actions .stButton>button:first-child:hover { transform: translateY(-2px); box-shadow: 0 26px 58px rgba(212,175,55,0.22); }
         .hero-actions .stButton>button:last-child { background: transparent; color: #FFFFFF; border: 1px solid rgba(212,175,55,0.9); }
         .hero-actions .stButton>button:last-child:hover { background: rgba(212,175,55,0.16); color: #FFFFFF; border-color: rgba(255,223,120,0.95); box-shadow: 0 20px 44px rgba(212,175,55,0.16); }
-        .hero-actions .stButton>button svg { margin-right: 10px; vertical-align: middle; }
-        .hero-visual { display: flex; justify-content: flex-end; position: relative; }
-        .hero-visual { margin-top: 10px; }
-        .hero-visual-card { position: relative; width: 100%; max-width: 640px; min-height: 560px; border-radius: 34px; background: rgba(18,18,18,0.95); border: 1px solid rgba(212,175,55,0.14); box-shadow: 0 28px 86px rgba(0,0,0,0.5); overflow: hidden; }
+                .hero-actions .stButton>button svg { margin-right: 10px; vertical-align: middle; }
+        
+        /* Premium Feature Highlights */
+        .hero-highlights-row { display: flex; gap: 24px; margin-bottom: 36px; margin-top: 8px; flex-wrap: wrap; }
+        .highlight-item { flex: 1; min-width: 140px; }
+        .highlight-icon { color: #D4AF37; width: 28px; height: 28px; margin-bottom: 12px; }
+        .highlight-icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+        .highlight-title { color: #D4AF37; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
+        .highlight-desc { color: #FFFFFF; font-size: 0.78rem; line-height: 1.4; opacity: 0.8; font-weight: 400; }
+        
+        .hero-copy div:not(.hero-highlights-row):not(.hero-brand):not(.hero-actions) { color: #AFA998; font-size: 0.95rem; line-height: 1.7; max-width: 36rem; margin-bottom: 32px; font-weight: 400; }
+
+
+        .hero-visual { display: flex; justify-content: flex-end; position: relative; margin-top: 0; align-self: start; }
+
+        .hero-visual-card { position: relative; width: 100%; max-width: 640px; min-height: 520px; border-radius: 34px; background: rgba(18,18,18,0.95); border: 1px solid rgba(212,175,55,0.14); box-shadow: 0 28px 86px rgba(0,0,0,0.5); overflow: hidden; }
         .hero-visual-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent 34%); pointer-events: none; }
         .hero-visual-poster { position: absolute; border-radius: 28px; overflow: hidden; background: #111; box-shadow: 0 30px 82px rgba(0,0,0,0.32); transition: transform 260ms ease, box-shadow 260ms ease; }
         .hero-visual-poster img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.1) brightness(0.9); }
@@ -38,8 +52,8 @@ def render_home_page_styles():
         .hero-visual-glow { position: absolute; top: 20%; left: 18%; width: 220px; height: 220px; border-radius: 50%; background: radial-gradient(circle, rgba(212,175,55,0.16), transparent 65%); pointer-events: none; filter: blur(12px); }
         .hero-visual-glow--small { position: absolute; bottom: 18%; right: 12%; width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle, rgba(212,175,55,0.14), transparent 68%); pointer-events: none; filter: blur(12px); }
 
-        .poster-showcase-section { padding: 18px 0 40px; }
-        .carousel-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 24px; }
+        .poster-showcase-section { padding: 6px 0 28px; }
+        .carousel-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-bottom: 14px; }
         .carousel-title { font-size: 1.55rem; font-weight: 800; margin: 0; color: #FFFFFF; }
         .carousel-subtitle { color: #CFC9B7; font-size: 0.96rem; }
         .carousel-controls { display: inline-flex; gap: 12px; }
@@ -56,7 +70,7 @@ def render_home_page_styles():
         .poster-title { font-size: 1.02rem; font-weight: 700; margin-bottom: 6px; }
         .poster-year { color: #CFC9B7; font-size: 0.92rem; }
 
-        .feature-section { padding: 8px 0 0; }
+        .feature-section { padding: 2px 0 0; }
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
         .feature-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(212,175,55,0.10); border-radius: 24px; padding: 26px 24px; box-shadow: 0 18px 50px rgba(0,0,0,0.2); transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease; }
         .feature-card:hover { transform: translateY(-6px); border-color: rgba(212,175,55,0.20); box-shadow: 0 30px 70px rgba(0,0,0,0.28); }
@@ -86,29 +100,52 @@ def render_hero_section():
         with left:
             st.markdown(
                 """
-                <div class="hero-section">
-                    <div class="hero-copy">
-                        <div class="hero-brand">🎬 CINEMIND AI</div>
-                        <p class="hero-tagline">AI That Predicts Movie Success</p>
-                        <h1 class="hero-title">AI THAT PREDICTS<br /><span class="title-highlight">MOVIE SUCCESS</span><br />Before Release</h1>
-                        <p class="hero-description">A premium cinematic platform for studios and executives. Forecast movie potential with luxury visuals, trusted AI, and executive-grade insight.</p>
-                        <div class="hero-actions">
+                <div class="hero-copy">
+                    <div class="hero-brand">INTELLIGENT FORECASTING</div>
+                    <p class="hero-description">The definitive forecasting platform for modern cinema. Harnessing proprietary audience signals and historical data to quantify box office potential with clinical precision.</p>
+                    <div class="hero-copy-executive">Designed for producers and investors who demand more than intuition. Reduce production risk and validate your creative vision with executive-grade predictive analytics.</div>
+                </div>
                 """,
                 unsafe_allow_html=True,
             )
+            
+            st.markdown(
+                """
+                <div class="hero-highlights-row">
+                    <div class="highlight-item">
+                        <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></div>
+                        <div class="highlight-title">Predict</div>
+                        <div class="highlight-desc">Accurate box office forecasts before production begins.</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg></div>
+                        <div class="highlight-title">Analytics</div>
+                        <div class="highlight-desc">Discover audience trends and performance insights.</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+                        <div class="highlight-title">De-Risk</div>
+                        <div class="highlight-desc">Identify financial risks before investing.</div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg></div>
+                        <div class="highlight-title">Maximize</div>
+                        <div class="highlight-desc">Optimize strategy to improve commercial success.</div>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                """,
+                unsafe_allow_html=True,
+            )
+
             button_col1, button_col2 = st.columns([0.45, 0.45], gap="small")
             with button_col1:
                 st.button("🚀 START PREDICTION", key="home_start_prediction", on_click=navigate_to, args=("Prediction",))
             with button_col2:
                 st.button("➡ LEARN MORE", key="home_learn_more", on_click=navigate_to, args=("About",))
-            st.markdown(
-                """
-                        </div>
-                    </div>
-                </div>
-                """,
-                unsafe_allow_html=True,
-            )
+            
+            st.markdown('</div>', unsafe_allow_html=True)
+
         with right:
             st.markdown(
                 """

@@ -50,12 +50,99 @@ load_styles()
 st.markdown(
     """
     <style>
+    .stApp > div { background: transparent; }
+    .block-container {
+        padding-top: 0 !important;
+        padding-bottom: 1rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    .top-site-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        background: linear-gradient(180deg, rgba(0,0,0,0.96), rgba(10,10,10,0.96));
+        border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.22);
+    }
+    .cnav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0.9rem 1.25rem;
+        white-space: nowrap;
+    }
+    .brand-block {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+        flex-shrink: 0;
+    }
+        .brand-title {
+        font-family: 'Poppins', 'Inter', 'Manrope', sans-serif;
+        font-size: 2.2rem;
+        font-weight: 900;
+        line-height: 1.2;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #FFD95A 0%, #D4AF37 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #D4AF37;
+        text-shadow: 0 0 10px rgba(212, 175, 55, 0.18);
+        padding-top: 5px;
+    }
 
-    ...
+        .brand-subtitle {
+        font-family: 'Poppins', 'Inter', 'Manrope', sans-serif;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: #D4AF37;
+        opacity: 0.8;
+    }
+        /* NEW: Force navigation buttons to be horizontal */
+    
+    .top-site-header .stButton button{
+    background:none !important;
+    border:none !important;
+    color:#D4AF37 !important;
+
+    font-size:1rem !important;
+    font-weight:800 !important;
+    letter-spacing:.08em !important;
+
+    padding:0 !important;
+    min-height:auto !important;
+
+    box-shadow:none !important;
+    transition:.3s ease;
+}
+
+.top-site-header .stButton button:hover{
+    color:#3FA9FF !important;
+    transform:translateY(-2px);
+}
+    .top-site-header .stButton > button:focus,
+    .top-site-header .stButton > button:active {
+        outline: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+    }
     </style>
+
     """,
     unsafe_allow_html=True,
 )
+
 def get_base64_image(image_path: Path) -> str:
     with image_path.open("rb") as f:
         return base64.b64encode(f.read()).decode("utf-8")
@@ -67,48 +154,54 @@ if LOGO_PATH.exists():
 
 # --- Navigation (premium top nav; stateful) ---
 nav_items = [
-    ("Home", "🏠"),
-    ("Prediction", "🎬"),
-    ("Analytics", "📊"),
-    ("Chatbot", "🤖"),
-    ("Dataset Info", "🗂"),
-    ("About", "ℹ"),
+    "Home",
+    "Prediction",
+    "Analytics",
+    "Chatbot",
+    "Dataset Info",
+    "About",
 ]
 
 if "page" not in st.session_state:
     st.session_state.page = "Home"
 
-with st.container():
-    st.markdown('<div class="cnav">', unsafe_allow_html=True)
-    cols = st.columns(len(nav_items), gap="small")
-    for col, (label, icon) in zip(cols, nav_items):
-        with col:
-            if st.button(f"{icon} {label}", key=f"nav_{label}"):
-                st.session_state.page = label
-    st.markdown('</div>', unsafe_allow_html=True)
+# --- Premium Navigation Header ---
+st.markdown('<div class="top-site-header">', unsafe_allow_html=True)
+header_col1, header_col2 = st.columns([1, 2.5])
 
-active_index = [label for label, _ in nav_items].index(st.session_state.page) + 1
+with header_col1:
+    st.markdown('''
+        <div class="brand-block">
+            <div class="brand-title">CINEMIND AI</div>
+            <div class="brand-subtitle">AI THAT PREDICTS MOVIE SUCCESS</div>
+        </div>
+    ''', unsafe_allow_html=True)
+
+with header_col2:
+
+    nav_cols = st.columns(6)
+
+    for col, label in zip(nav_cols, nav_items):
+        with col:
+            if st.button(label, key=f"nav_{label}", use_container_width=True):
+                st.session_state.page = label
+                st.rerun()
+st.markdown('</div>', unsafe_allow_html=True)
+
+active_index = nav_items.index(st.session_state.page) + 1
 st.markdown(
     f"""
     <style>
-        .stButton:nth-of-type({active_index})>button {{
-            background: linear-gradient(90deg, #D4AF37 0%, #F5D76E 100%) !important;
-            color: #0B0B0B !important;
-            border-color: rgba(255,255,255,0.22) !important;
-            box-shadow: 0 20px 44px rgba(212,175,55,0.24) !important;
-        }}
-        .stButton:nth-of-type({active_index})>button::after {{
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 16px;
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
-            pointer-events: none;
+        .nav-links-wrapper .stButton:nth-of-type({active_index}) > button {{
+            color: #FFD76A !important;
+            text-shadow: 0 0 12px rgba(255, 215, 106, 0.3) !important;
+            border-bottom: 2px solid #D4AF37 !important;
         }}
     </style>
     """,
     unsafe_allow_html=True,
 )
+
 
 # Initialize model and dashboard data
 predictor = MoviePredictor()

@@ -26,45 +26,44 @@ def load_styles():
             min-height: 100%;
         }
 
-        /* Top nav (used by app) */
-        .cnav { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; align-items:center; margin:18px 0 28px 0; }
+                /* Top nav (used by app) */
+        .cnav { display:flex; flex-wrap:nowrap; gap:40px; justify-content:center; align-items:center; margin:18px 0 28px 0; }
         .stButton:nth-of-type(-n+6)>button,
         .stButton:nth-of-type(-n+6)>button * {
-            color: #FFFFFF !important;
+            color: #D4AF37 !important;
         }
         .stButton:nth-of-type(-n+6)>button {
-            display:inline-flex !important;
-            align-items:center !important;
-            justify-content:center !important;
-            gap:10px !important;
-            min-width: 170px !important;
-            padding: 12px 24px !important;
-            border-radius: 18px !important;
-            border: 1px solid rgba(212,175,55,0.35) !important;
-            background: rgba(12,12,12,0.55) !important;
-            color: #FFFFFF !important;
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial !important;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            padding: 0 !important;
+            min-width: 0 !important;
+            margin: 0 !important;
+            color: #D4AF37 !important;
+            font-family: 'Poppins', 'Inter', 'Manrope', sans-serif !important;
             font-size: 1rem !important;
-            font-weight: 650 !important;
-            letter-spacing: 0.3px !important;
-            transition: all 300ms cubic-bezier(.2,.9,.2,1) !important;
-            box-shadow: 0 10px 24px rgba(0,0,0,0.18) !important;
-            text-transform: none !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.05em !important;
+            text-transform: uppercase !important;
+            text-decoration: none !important;
+            transition: color 0.3s ease !important;
+            cursor: pointer !important;
             white-space: nowrap !important;
         }
         .stButton:nth-of-type(-n+6)>button:hover {
-            border-color: rgba(255,223,120,0.95) !important;
-            background: rgba(30,30,30,0.85) !important;
-            box-shadow: 0 18px 38px rgba(212,175,55,0.18) !important;
-            transform: translateY(-2px) !important;
-            color: #FFFFFF !important;
-            cursor: pointer !important;
+            color: #4DA3FF !important;
+            background: transparent !important;
+            transform: none !important;
+            box-shadow: none !important;
         }
         .stButton:nth-of-type(-n+6)>button.active {
-            border-color: rgba(255,223,120,0.95) !important;
-            background: rgba(255,223,120,0.08) !important;
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08) !important;
+            border: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            border-bottom: 2px solid #D4AF37 !important;
         }
+
         .stButton:nth-of-type(-n+6)>button:focus,
         .stButton:nth-of-type(-n+6)>button:active {
             outline: none !important;
